@@ -1,0 +1,35 @@
+// REST service notes
+
+SOAP - Simple Object Access Protocol
+REST - Representation State Transfer - передача состояния объектов
+To test the API, we can use a very easy-to-use tool named Postman. It can be downloaded from: https://www.getpostman.com/
+
+add sql db by new created new prj in solutioi : https://www.c-sharpcorner.com/article/create-sql-server-database-project-with-visual-studio/
+
+create new local DB by SQLServer
+
+using Scaffold-DbContext cmd to generate model classes
+
+Scaffold-DbContext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EComerceDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" Microsoft.EntityFrameworkCore.SqlServer -Verbose -OutputDir Model -Tables Customers
+
+
+[To enable CORS for all origins]
+
+how to add CORS settings to asp.net core project - https://stackoverflow.com/questions/31942037/how-to-enable-cors-in-asp-net-core
+
+or, follow the steps shown ahead:
+ - Install the Microsoft.AspNetCore.Cors NuGet package
+ - Inside Startup ConfigureServices, add the following code to implement a policy for CORS that would allow all origins:
+	services.AddCors(options =>
+	{
+	  options.AddPolicy("AllowAll",
+	    builder =>
+	    {
+	      builder
+	      .AllowAnyOrigin()
+	      .AllowAnyMethod()
+	      .AllowAnyHeader();
+	    });
+	});
+
+[Adding basic authentication]
