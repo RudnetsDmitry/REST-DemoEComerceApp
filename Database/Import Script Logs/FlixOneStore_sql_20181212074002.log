@@ -1,0 +1,13 @@
+12.12.2018 22:40:02	This log contains information about the import operation of the script 'FlixOneStore.sql' into project 'Database' on computer 'MITYALAPTOP' by user'Mitya.
+12.12.2018 22:40:03	Started importing file: E:\Projects\vs_2017\REST\DemoEComerceApp\DB\FlixOneStore.sql 
+12.12.2018 22:40:03	File name E:\Projects\vs_2017\REST\DemoEComerceApp\DB\FlixOneStore.sql (size: 46030)
+12.12.2018 22:40:03	Parsing import script
+12.12.2018 22:40:03	Total number of batches in script: 134
+12.12.2018 22:40:03	Total number of statements in script: 49
+12.12.2018 22:40:03	The script was successfully imported into the project.
+12.12.2018 22:40:03	Analyzing schema objects...
+12.12.2018 22:40:03	Scanning project for duplicate elements
+12.12.2018 22:40:04	Finished duplicate element processing
+12.12.2018 22:40:05	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+12.12.2018 22:40:05	A summary of the import was saved to the following location: E:\Projects\vs_2017\REST\DemoEComerceApp\Database\Import Script Logs\FlixOneStore_sql_20181212074002.log
+12.12.2018 22:40:05	Click Finish to continue...

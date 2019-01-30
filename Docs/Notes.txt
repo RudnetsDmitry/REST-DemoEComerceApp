@@ -33,3 +33,21 @@ or, follow the steps shown ahead:
 	});
 
 [Adding basic authentication]
+
+1. add MyOptionClass : AuthenticationSchemeOptions
+2. add MyAuthnticationHandler : AuthenticationHandler<MyOptionClass>
+
+override 2 method - 
+protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+protected override async Task HandleChallengeAsync(AuthenticationProperties properties) - 
+
+If a client tries to access a restricted resource or a resource that requires authentication, it's the server's responsibility to inform the client about the authentication type and related information. The WWW-Authenticate HTTP response header is set by the server that defines the authentication method that should be used to gain access to the restricted resource requested.
+
+3. add authintication to startup.cs
+services.AddAuthentication("Basic")
+                .AddScheme<BasicAuthenticationOptions, BasicAuthenticationHandler>("Basic", null);
+
+[Adding OAuth 2.0]
+
+will be using https://github.com/IdentityServer
+to add this server - use nuget manager : add IdentityServer4, IdentityServer4.AccessTokenValidatioin

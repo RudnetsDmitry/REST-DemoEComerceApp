@@ -1,0 +1,5 @@
+bin
+/DemoEComerceApp/*.user
+obj
+/Database/dbo/Tables/*.sql
+/.vs

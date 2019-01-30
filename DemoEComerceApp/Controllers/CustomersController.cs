@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DemoEComerceApp.Model;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace DemoEComerceApp.Controllers
 {
@@ -32,11 +34,25 @@ namespace DemoEComerceApp.Controllers
 
         // GET: api/Customers/5
         [HttpGet("{id}")]
+        //[Authorize(AuthenticationSchemes ="Basic")]
+        [Authorize]
         public async Task<IActionResult> GetCustomers([FromRoute] Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            // check user for valid
+            var ident = User.Identity as ClaimsIdentity;
+            if (ident == null)
+            {
+                return BadRequest("Authorized error");
+            }
+            var currentLoggedInUserId = ident.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (currentLoggedInUserId != id.ToString())
+            {
+                return BadRequest("You are not authorized");
             }
 
             var customers = await _context.Customers.FindAsync(id);
